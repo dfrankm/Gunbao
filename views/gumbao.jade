@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    
+    head
+        title= Gumbao
+        script(src='/js/jquery-2.1.1.js')
+        script(src='/socket.io/socket.io.js')
+        script(src='/js/client.js')
+        script(src='/js/draw.js')
+        |<style type="text/css">
+        include ../public/css/style.css
+        |</style>
+    
+    body
+        #game
+            canvas#playground(width=1024, height=512, style="border:1px solid #ddd")

@@ -1,0 +1,11 @@
+{
+    "port"      : 9876,
+    "width"     : 1024,
+    "height"    : 512,
+    "radius"    : 10,
+    "rshoot"    : 5,
+    "movestep"  : 1,
+    "powerstep" : 1,
+    "shootstep" : 0.1,
+    "gravity"   : 1
+}
