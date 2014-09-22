@@ -1,0 +1,12 @@
+{
+    "name"          : "Gunbao",
+    "version"       : "0.0.0",
+    "description"   : "Juego de disparos tipo Gunbound",
+    "dependencies"  : {
+        "socket.io"     : "latest",
+        "express"       : "latest",
+        "jade"          : "latest",
+        "body-parser"   : "latest"
+    },
+    "author"        : "D. Frank"
+}
