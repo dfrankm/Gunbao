@@ -7,6 +7,7 @@ var Player = function(name, id) {
     this.life = 100;
     this.name = name;
     this.power = 0;
+    this.prevpower = 0;
     this.side = 'right';
     this.x = 0;
     this.y = 0;

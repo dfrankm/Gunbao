@@ -17,22 +17,26 @@ Shoot.prototype.detectCollision = function() {
     var x = this.x;
     var y = this.y;
     var mapy = game.map.getY(x);
-    
-    if (Math.abs(mapy - y) < conf.rshoot) {
-        return true;
-    }
-    
     var players = game.players;
     var nplayers = game.players.length;
+    
+    if (Math.abs(mapy - y) < conf.rshoot || mapy < y) {
+        return true;
+    }
     
     for (var i = 0; i < nplayers; i++) {
         var dx = players[i].x - x;
         var dy = players[i].y - y;
         if (Math.sqrt(dx*dx + dy*dy) < conf.radius + conf.rshoot) {
+            game.players[i].life -= 10;
+            if (game.players[i].life <= 0) {
+                game.delPlayer(player);
+                game.messages.push('Muere el jugador ' + game.players[i].name);
+            }
             return true;
         }
     }
-    
+        
     return false;
 }
 

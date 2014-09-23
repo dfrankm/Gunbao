@@ -28,8 +28,8 @@ function drawGame(game, id) {
     if (game.shoot) {
         drawShoot(game.shoot);
     }
-//     drawTimer(game.remtime);
-//     drawMessages(game.msgList);
+    drawTimer(game.rtime);
+    drawMessages(game.messages);
 }
 
 function drawPlayer(player) {
@@ -60,20 +60,28 @@ function drawPlayer(player) {
 function drawMessages(lmssg) {
     var canv = document.getElementById('playground');
     var cntx = canv.getContext('2d');
+    cntx.fillStyle = "#000000";
+    var nmsgs = lmssg.length;
     for(var i = 0; i < 5; i++) {
-        if (lmssg[i]) {
-            cntx.fillText(lmssg[i], 5, 30 + 10*i);
+        if (lmssg[nmsgs-i-1]) {
+            cntx.fillText(lmssg[nmsgs-i-1], 5, 30 + 10*i);
         }
     }
 }
 
 function drawPowerBar(player) {
     var canvas = document.getElementById('playground');
-    var ctx = canvas.getContext('2d')
+    var ctx = canvas.getContext('2d');
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 500, 1024, 12);
     ctx.fillStyle = "#FF0000";
     ctx.fillRect(0, 500, 10.24*player.power, 12);
+    ctx.beginPath();
+    ctx.moveTo(10.24*player.prevpower, 500);
+    ctx.lineTo(10.24*player.prevpower, 512);
+    ctx.lineWidth = 2;
+    ctx.strokeStyle="#FFFFFF";
+    ctx.stroke();
 }
 
 function drawShoot(shoot) {
@@ -90,5 +98,6 @@ function drawShoot(shoot) {
 function drawTimer(time) {
     var canv = document.getElementById('playground');
     var cntx = canv.getContext('2d');
+    cntx.fillStyle = "#000000";
     cntx.fillText(time, 1000, 20);
 }
